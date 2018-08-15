@@ -72,4 +72,5 @@ export class DetailsComponent implements OnInit {
     email:string;
   }
 
-
+  
+  

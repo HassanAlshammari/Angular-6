@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase , AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +16,8 @@ export class MyskillComponent implements OnInit {
     skill:'',
     province:'',
     price:'',
-    comment:''
+    comment:'',
+    email:'',
   }
   email:string;
   myUid:any;
@@ -53,6 +54,7 @@ editform($key){
       this.data.province=value['province'];
       this.data.price=value['price'];
       this.data.comment=value['comment'];
+      this.data.email=value['email'];
     }
   }
 }
@@ -64,6 +66,7 @@ onEdit($key){
   this.data.province;
   this.data.price;
   this.data.comment;
+  this.data.email;
   
   this.itemList.set($key , {
     name:this.data.name,
@@ -72,7 +75,8 @@ onEdit($key){
     province:this.data.province,
     price:this.data.price,
     comment:this.data.comment,
-    uid:this.myUid
+    uid:this.myUid,
+    email: this.data.email
   })
   this.itemArray=[]
   this.router.navigate(['myskill/'])
